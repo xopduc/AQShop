@@ -19,6 +19,7 @@
         protected override void Seed(AQShop.Data.AQShopDbContext context)
         {
             //UpdateProductCategory(context);
+            CreateFooter(context);
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
@@ -32,33 +33,45 @@
             //    );
             //
 
-            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new AQShopDbContext()));
+            //var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new AQShopDbContext()));
 
-            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new AQShopDbContext()));
+            //var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new AQShopDbContext()));
 
-            var user = new ApplicationUser()
-            {
-                UserName = "aqadmin",
-                Email = "aq.international@gmail.com",
-                EmailConfirmed = true,
-                BirthDay = DateTime.Now,
-                FullName = "aq shop"
+            //var user = new ApplicationUser()
+            //{
+            //    UserName = "aqadmin",
+            //    Email = "aq.international@gmail.com",
+            //    EmailConfirmed = true,
+            //    BirthDay = DateTime.Now,
+            //    FullName = "aq shop"
 
-            };
+            //};
 
-            manager.Create(user, "123654$");
+            //manager.Create(user, "123654$");
 
-            if (!roleManager.Roles.Any())
-            {
-                roleManager.Create(new IdentityRole { Name = "Admin" });
-                roleManager.Create(new IdentityRole { Name = "User" });
-            }
+            //if (!roleManager.Roles.Any())
+            //{
+            //    roleManager.Create(new IdentityRole { Name = "Admin" });
+            //    roleManager.Create(new IdentityRole { Name = "User" });
+            //}
 
-            var adminUser = manager.FindByEmail("aq.international@gmail.com");
+            //var adminUser = manager.FindByEmail("aq.international@gmail.com");
 
-            manager.AddToRoles(adminUser.Id, new string[] { "Admin", "User" });
+            //manager.AddToRoles(adminUser.Id, new string[] { "Admin", "User" });
 
             context.SaveChanges();
+        }
+
+        private void CreateFooter(AQShopDbContext context)
+        {
+            //add footer for home
+            var footers = new List<Footer>();
+            if((context.Footers.Where(x=>x.ID == Common.CommonConstant.DefaultIdFooter).Count()) == 0)
+            {
+                var footer = new Footer() { ID = Common.CommonConstant.DefaultIdFooter, Content = " " };
+                footers.Add(footer);
+                context.Footers.AddRange(footers);
+            }
         }
 
         private void UpdateProductCategory(AQShop.Data.AQShopDbContext context)

@@ -9,5 +9,6 @@ namespace AQShop.Common
     public class CommonConstant
     {
         public const string ProductTag = "Product";
+        public const string DefaultIdFooter = "Default";
     }
 }
