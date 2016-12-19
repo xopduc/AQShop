@@ -19,7 +19,8 @@
         protected override void Seed(AQShop.Data.AQShopDbContext context)
         {
             //UpdateProductCategory(context);
-            CreateFooter(context);
+            //CreateFooter(context);
+            CreateSlide(context);
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
@@ -60,6 +61,22 @@
             //manager.AddToRoles(adminUser.Id, new string[] { "Admin", "User" });
 
             context.SaveChanges();
+        }
+
+        private void CreateSlide(AQShopDbContext context)
+        {
+            if(context.Slides.Count() == 0)
+            {
+                var slides = new List<Slide>()
+                {
+                    new Slide() { Name =" slide1", DisplayOrder=1,Status = true,URL="#",Image="Assets/client/images/bag.png" },
+                     new Slide() { Name =" slide2", DisplayOrder=2,Status = true,URL="#",Image="Assets/client/images/bag1.png" },
+                      new Slide() { Name =" slide3", DisplayOrder=3,Status = true,URL="#",Image="Assets/client/images/bag2.png" }
+                };
+                context.Slides.AddRange(slides);
+                context.SaveChanges();
+            }
+          
         }
 
         private void CreateFooter(AQShopDbContext context)

@@ -17,6 +17,8 @@ namespace AQShop.Model.Models
         [MaxLength(256)]
         public string Description { get; set; }
 
+        public string Content { get; set; }
+
         [MaxLength(256)]
         public string Image { get; set; }
 

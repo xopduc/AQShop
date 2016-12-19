@@ -15,13 +15,13 @@
         $scope.getSeoTitle = getSeoTitle;
 
         function getSeoTitle()
-        {
+        {           
             $scope.product.Alias = commonService.getSeoTitle($scope.product.Name);
         }
 
         function loadParentCategory()
         {
-            apiService.get("/api/product/GetAllParentProductCategory", null, function(result) {
+            apiService.get("/api/productCategory/GetAllParentProductCategory", null, function (result) {
                 $scope.parentCategory = result.data;
             }, function()
             {
@@ -51,7 +51,7 @@
         
        
         loadParentCategory();
-        loadProductCategoryById();
+        loadProductById();
     }
 
 })(angular.module("aqshop.products"));

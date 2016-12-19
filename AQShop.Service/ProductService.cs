@@ -20,6 +20,8 @@ namespace AQShop.Service
         //IEnumerable<Product> GetAllByParentID(int parentID);
         Product GetByID(int id);
         void Save();
+        IEnumerable<Product> GetLatestProducts(int number);
+        IEnumerable<Product> GetHotProducts(int number);
 
     }
     public class ProductService : IProductService
@@ -109,6 +111,18 @@ namespace AQShop.Service
         public void Update(Product product)
         {
              _productRepository.Update(product);
+        }
+
+        public IEnumerable<Product> GetLatestProducts(int top)
+        {
+            var latestProducts = _productRepository.GetMulti(x => x.Status).OrderByDescending(x => x.CreateDate).Take(top);
+            return latestProducts;
+        }
+
+        public IEnumerable<Product> GetHotProducts(int top)
+        {
+            var hotProducts = _productRepository.GetMulti(x => x.Status == true && x.HotFlag == true).Take(top);
+            return hotProducts;
         }
     }
 }

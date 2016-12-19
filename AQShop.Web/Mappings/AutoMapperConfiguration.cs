@@ -23,6 +23,8 @@ namespace AQShop.Web.Mappings
             Mapper.CreateMap<ProductCategory, ProductCategoryViewModel>();
             Mapper.CreateMap<ProductCategoryViewModel, ProductCategory>();
             Mapper.CreateMap<ProductTag, ProductTagViewModel>();
+            Mapper.CreateMap<Footer, FooterViewModel>();
+            Mapper.CreateMap<Slide, SlideViewModel>();
         }
     }
 }

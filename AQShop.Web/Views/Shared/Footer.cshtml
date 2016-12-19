@@ -1,12 +1,12 @@
-﻿
+﻿@model AQShop.Web.Models.FooterViewModel
 <div class="footer">
     <div class="footer-top">
         <div class="container">
             <div class="latter">
-                <h6>NEWS-LETTER</h6>
+                <h6>THƯ LIÊN HỆ</h6>
                 <div class="sub-left-right">
                     <form>
-                        <input type="text" value="Enter email here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter email here';}" />
+                        <input type="text" value="Nhập vào email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Nhập vào email';}" />
                         <input type="submit" value="SUBSCRIBE" />
                     </form>
                 </div>
@@ -26,7 +26,7 @@
     </div>
     <div class="footer-bottom">
         <div class="container">
-           
+           @Html.Raw(Model.Content)
         </div>
     </div>
 </div>

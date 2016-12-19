@@ -11,7 +11,7 @@ namespace AQShop.Web.Models
         
         public string Name { get; set; }
       
-        public string ALias { get; set; }
+        public string Alias { get; set; }
        
         public int CategoryID { get; set; }
        

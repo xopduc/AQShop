@@ -42,7 +42,8 @@
         }
 
         $scope.isChecked = function () {
-            return $scope.selected.length === $scope.items.length;
+            console.log($scope.items.length);
+            return ($scope.selected.length === $scope.items.length && ($scope.items.length > 0));
         };
 
         $scope.toggleAll = function () {
@@ -90,6 +91,7 @@
             $mdDialog.show(confirm).then(function () {                
                 apiService.del("api/productCategory/DeleteMulti?ids=" + $scope.selected.toString(), null, function (result) {
                     notificationService.displaySuccess("Da xoa thanh cong cac ban ghi");
+                    $scope.items = [];
                     search();
 
                 }, function (failure) {
@@ -128,7 +130,7 @@
                 result.data.Items.forEach(function(item){
                     $scope.items.push(item.ID);
                 });
-
+                $scope.selected = [];
                 $scope.page = result.data.Page;
                 $scope.pageCount = result.data.TotalPages;
                 $scope.totalCount = result.data.TotalCount;

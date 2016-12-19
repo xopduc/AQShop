@@ -36,7 +36,7 @@
             <label for="inputEmail3" class="col-sm-2 control-label">Danh mục cha</label>
             <div class="col-sm-10">
                 <select class="form-control" name="parentId"  ng-model="productCategory.ParentId" ng-options="option.ID as option.Name for option in parentCategory">                  
-               
+                    <option value="">Danh mục gốc</option>
                 </select>
                 <input name="parentId" type="hidden" ng-model="productCategory.ParentId" />
             </div>

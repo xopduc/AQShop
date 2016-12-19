@@ -13,15 +13,30 @@ namespace AQShop.Web.Controllers
     public class HomeController : Controller
     {
         private IProductCategoryService _productCategoryService;
-        public HomeController(IProductCategoryService productCategoryService)
+        private IProductService _productService;
+        private ICommonService _commonServie;
+
+        public HomeController(IProductCategoryService productCategoryService, IProductService productService, ICommonService commonService)
         {
             _productCategoryService = productCategoryService;
+            _commonServie = commonService;
+            _productService = productService;
         }
 
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            var slideModel = _commonServie.GetSlides();
+            var slideView = Mapper.Map<IEnumerable<Slide>, IEnumerable<SlideViewModel>>(slideModel);
+            var latestProductModel = _productService.GetLatestProducts(3);
+            var latestProductView = Mapper.Map <IEnumerable<Product>, IEnumerable<ProductViewModel>>(latestProductModel);
+            var topSaleProductModel = _productService.GetHotProducts(3);
+            var topSaleProductView = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(topSaleProductModel);
+            var homeViewModel = new HomeViewModel();
+            homeViewModel.Slides = slideView;
+            homeViewModel.LatestProducts = latestProductView;
+            homeViewModel.TopSaleProducts = topSaleProductView;
+            return View(homeViewModel);
         }
 
 
@@ -36,9 +51,10 @@ namespace AQShop.Web.Controllers
         [ChildActionOnly]
         public ActionResult Footer()
         {
-         
+            var model = _commonServie.GetFooterCommon();
+            var footer = Mapper.Map<Footer, FooterViewModel>(model);
 
-            return PartialView();
+            return PartialView(footer);
         }
 
         [ChildActionOnly]

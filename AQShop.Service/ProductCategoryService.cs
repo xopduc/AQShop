@@ -43,7 +43,7 @@ namespace AQShop.Service
 
         public IEnumerable<ProductCategory> GetAll()
         {
-            return _productCategoryRepository.GetAll();
+            return _productCategoryRepository.GetMulti(x=>x.Status);
         }
 
         public IEnumerable<ProductCategory> GetAll(string keyword)

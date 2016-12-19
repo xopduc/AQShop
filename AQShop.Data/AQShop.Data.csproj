@@ -121,6 +121,10 @@
     <Compile Include="Migrations\201611301605124_changeIdentityDb.Designer.cs">
       <DependentUpon>201611301605124_changeIdentityDb.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612071702218_AddContentSlide.cs" />
+    <Compile Include="Migrations\201612071702218_AddContentSlide.Designer.cs">
+      <DependentUpon>201612071702218_AddContentSlide.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositoties\ErrorRepository.cs" />
@@ -143,7 +147,7 @@
     <Compile Include="Repositoties\ProductCategoryRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="Repositoties\App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -198,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611301605124_changeIdentityDb.resx">
       <DependentUpon>201611301605124_changeIdentityDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612071702218_AddContentSlide.resx">
+      <DependentUpon>201612071702218_AddContentSlide.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
