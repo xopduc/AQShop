@@ -20,7 +20,8 @@
         {
             //UpdateProductCategory(context);
             //CreateFooter(context);
-            CreateSlide(context);
+            //CreateSlide(context);
+            CreatePage(context);
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
@@ -89,6 +90,16 @@
                 footers.Add(footer);
                 context.Footers.AddRange(footers);
             }
+        }
+
+        private void CreatePage(AQShopDbContext context)
+        {
+            var page = new Page()
+            {
+                Name = "gioi thieu",
+                Alias = "gioi-thieu"
+            };
+            context.Pages.Add(page);
         }
 
         private void UpdateProductCategory(AQShop.Data.AQShopDbContext context)

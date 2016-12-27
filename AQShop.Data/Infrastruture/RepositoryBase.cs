@@ -111,7 +111,7 @@ namespace AQShop.Data.Infrastruture
                 }
                 return query.FirstOrDefault(expression);
             }
-            return dbContext.Set<T>().FirstOrDefault();
+            return dbContext.Set<T>().FirstOrDefault(expression);
         }
 
         public virtual IEnumerable<T> GetMulti(Expression<Func<T, bool>> predicate, string[] includes = null)

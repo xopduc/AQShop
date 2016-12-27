@@ -17,7 +17,7 @@ namespace AQShop.Web.Mappings
             Mapper.CreateMap<PostCategory, PostCategoryViewModel>();
             Mapper.CreateMap<PostTag, PostTagViewModel>();
             Mapper.CreateMap<Post, PostCategoryViewModel>();
-            Mapper.CreateMap<Tag,Tag>();
+            Mapper.CreateMap<Tag,TagViewModel>();
             Mapper.CreateMap<Product, ProductViewModel>();
             Mapper.CreateMap<ProductViewModel, Product>();
             Mapper.CreateMap<ProductCategory, ProductCategoryViewModel>();
@@ -25,6 +25,8 @@ namespace AQShop.Web.Mappings
             Mapper.CreateMap<ProductTag, ProductTagViewModel>();
             Mapper.CreateMap<Footer, FooterViewModel>();
             Mapper.CreateMap<Slide, SlideViewModel>();
+            Mapper.CreateMap<Page, PageViewModel>();
+            Mapper.CreateMap<PageViewModel, Page>();
         }
     }
 }

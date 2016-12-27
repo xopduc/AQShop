@@ -125,6 +125,10 @@
     <Compile Include="Migrations\201612071702218_AddContentSlide.Designer.cs">
       <DependentUpon>201612071702218_AddContentSlide.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612261655402_createGioithieuPage.cs" />
+    <Compile Include="Migrations\201612261655402_createGioithieuPage.Designer.cs">
+      <DependentUpon>201612261655402_createGioithieuPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositoties\ErrorRepository.cs" />
@@ -205,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612071702218_AddContentSlide.resx">
       <DependentUpon>201612071702218_AddContentSlide.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612261655402_createGioithieuPage.resx">
+      <DependentUpon>201612261655402_createGioithieuPage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

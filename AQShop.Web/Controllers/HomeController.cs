@@ -24,6 +24,7 @@ namespace AQShop.Web.Controllers
         }
 
         // GET: Home
+        [OutputCache(Duration = 3600, Location = System.Web.UI.OutputCacheLocation.Server)]
         public ActionResult Index()
         {
             var slideModel = _commonServie.GetSlides();
@@ -49,6 +50,7 @@ namespace AQShop.Web.Controllers
 
 
         [ChildActionOnly]
+        [OutputCache(Duration = 3600)]
         public ActionResult Footer()
         {
             var model = _commonServie.GetFooterCommon();
@@ -58,6 +60,7 @@ namespace AQShop.Web.Controllers
         }
 
         [ChildActionOnly]
+        [OutputCache(Duration = 3600)]
         public ActionResult Category()
         {
             var model = _productCategoryService.GetAll();

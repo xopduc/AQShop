@@ -55,5 +55,6 @@ namespace AQShop.Model.Models
         public virtual ProductCategory ProductCategory { get; set; }
 
         public virtual IEnumerable<ProductTag> ProductTags { get; set; }
+     
     }
 }

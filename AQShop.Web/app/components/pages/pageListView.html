@@ -1,0 +1,71 @@
+﻿  <!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Danh sách page
+
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+        <li><a href="#">Sản phẩm</a></li>
+        <li class="active">Danh mục sản phẩm</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Danh mục page</h3>
+        </div>     
+        <div class="box-body">
+            <div class="row">              
+
+                <div class="col-md-6">
+                    <button class="btn btn-success" ui-sref="add_page">Thêm mới</button>
+                </div>
+            </div>
+
+        </div>  
+        <!-- /.box-header -->
+
+        <div class="row">
+            <div class="col-md-12 pull-right">
+                <button ng-disabled="!isAllowDeleteMulti()" class="btn btn-success pull-right" ng-click="deleteMulti()">Xoa dong da chon</button>
+            </div>
+            <div class="col-md-12">
+                <table class="table table-bordered">
+                    <tr class="text-center">
+                        <th align="center" class="col-md-1 md-left"><md-checkbox ng-checked="isChecked()" ng-click="toggleAll()">  </md-checkbox></th>
+                        <th class="col-md-2" style="width: 10px">ID</th>
+                        <th class="col-md-4">Tên page</th>                      
+                        <th class="col-md-1" style="width: 40px">Nội dung</th>
+                        <th class="col-md-2">Thao tác</th>
+                    </tr>
+                    <tr ng-repeat="item in pageList" class="">
+                        <td><md-checkbox aria-label="Select All" ng-checked="exists(item.ID, selected)" ng-click="toggle(item.ID, selected)">  </md-checkbox></td>
+                        <td>{{item.ID}}</td>
+                        <td>{{item.Name}}</td>                       
+                        <td>{{item.Content}}</td>      
+                        <td>
+                            <button ui-sref="edit_page({id:{{item.ID}}})" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i></button>
+                            <button ng-click="deleteById(item.ID)" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                        </td>
+                    </tr>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5">
+                                <span class="pull-left">Trang {{page+1}} trong tổng số {{pageCount}} trang- Số bản ghi: {{totalCount}} bản ghi</span>
+                            </td>
+                        </tr>
+                    </tfoot>
+
+                </table>
+            </div>
+
+        </div>
+
+        <!-- /.box-body -->
+        <div class="box-footer clearfix">
+            <pager-directive page="{{page}}" custom-path="{{customPath}}" pages-count="{{pageCount}}" total-count="{{totalCount}}" search-func="getAllProduct(page)"></pager-directive>
+        </div><!-- /.box-footer-->
+    </div><!-- /.box -->
+</section>

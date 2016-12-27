@@ -1,0 +1,44 @@
+﻿<div class="box-header with-border">
+    <h3 class="box-title">Cập nhật thông tin cho page {{page.Name}}</h3>
+</div>
+<!-- /.box-header -->
+<!-- form start -->
+<form class="form-horizontal" name="pageForm">
+    <div class="box-body">
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">Tên pagc</label>
+            <div class="col-sm-10" ng-class="{'has-error':pageForm.PageName.$invalid}">
+                <input required name="PageName" type="text" ng-change="getSeoTitle()" class="form-control" ng-model="page.Name">
+                <div class="col-sm-10 help-block" ng-messages="pageForm.PageName.$error" ng-show="pageForm.PageName.$invalid">
+                    <p ng-message="required">Tên page là bắt buộc nhập.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">Tiêu đề SEO</label>
+            <div class="col-sm-10" ng-class="{'has-error':pageForm.PageAlias.$invalid}">
+                <input required name="PageAlias" type="text" class="form-control" ng-model="page.Alias">
+                <div class=" col-sm-10 help-block" ng-messages="pageForm.PageAlias.$error" ng-show="pageForm.PageAlias.$invalid">
+                    <p ng-message="required">Tên danh mục là bắt buộc nhập.</p>
+                </div>
+            </div>
+        </div>    
+
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">Nội dung</label>
+            <div class="col-sm-10">
+                <!--<input type="text" ck class="form-control" ng-model="product.Desciption">-->
+                <textarea class="form-control" name="content" ckeditor="ckeditorOptions" ng-model="page.Content"></textarea>
+            </div>
+        </div>   
+           
+       
+    </div>
+    <!-- /.box-body -->
+    <div class="box-footer">
+        <button ui-sref="products" class="btn btn-default">Hủy bỏ</button>
+        <button type="submit" ng-click="UpdatePage()" class="btn btn-info pull-right">Tiến hành</button>
+    </div>
+    <!-- /.box-footer -->
+</form>

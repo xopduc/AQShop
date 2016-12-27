@@ -10,9 +10,39 @@
             CreatedDate: new Date(),          
             Status: true
         }
-
+        $scope.moreImages = [];
         $scope.parentCategory = [];
         $scope.getSeoTitle = getSeoTitle;
+        $scope.ckeditorOptions = {
+            languague: 'en',
+            height: '200px'
+        }
+
+        $scope.ChooseMoreImages = function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $scope.$apply(function () {
+                    if ($scope.moreImages.indexOf(fileUrl) < 0) {
+                        $scope.moreImages.push(fileUrl);
+                    }
+                })
+
+            }
+
+            finder.popup();
+        }
+
+        $scope.ChooseImage = function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $scope.$apply(function () {
+                    $scope.product.Image = fileUrl;
+                })
+
+            }
+
+            finder.popup();
+        }
 
         function getSeoTitle()
         {           
@@ -39,7 +69,8 @@
             });
         }
 
-        function UpdateProduct(){
+        function UpdateProduct() {
+            $scope.product.MoreImages = JSON.stringify($scope.moreImages)
             apiService.put("/api/product/update", $scope.product, function (result) {
                 notificationService.displaySuccess(result.data.Name + " đã được cập nhật.");
                 $state.go('products');
