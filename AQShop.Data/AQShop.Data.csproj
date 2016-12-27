@@ -129,8 +129,13 @@
     <Compile Include="Migrations\201612261655402_createGioithieuPage.Designer.cs">
       <DependentUpon>201612261655402_createGioithieuPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612271457385_addContactDetailModel.cs" />
+    <Compile Include="Migrations\201612271457385_addContactDetailModel.Designer.cs">
+      <DependentUpon>201612271457385_addContactDetailModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositoties\ContactDetailRepository.cs" />
     <Compile Include="Repositoties\ErrorRepository.cs" />
     <Compile Include="Repositoties\ProductTagRepository.cs" />
     <Compile Include="Repositoties\ProductRepository.cs" />
@@ -212,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612261655402_createGioithieuPage.resx">
       <DependentUpon>201612261655402_createGioithieuPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612271457385_addContactDetailModel.resx">
+      <DependentUpon>201612271457385_addContactDetailModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

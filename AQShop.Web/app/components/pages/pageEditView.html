@@ -6,7 +6,7 @@
 <form class="form-horizontal" name="pageForm">
     <div class="box-body">
         <div class="form-group">
-            <label for="inputEmail3" class="col-sm-2 control-label">Tên pagc</label>
+            <label for="inputEmail3" class="col-sm-2 control-label">Tên page</label>
             <div class="col-sm-10" ng-class="{'has-error':pageForm.PageName.$invalid}">
                 <input required name="PageName" type="text" ng-change="getSeoTitle()" class="form-control" ng-model="page.Name">
                 <div class="col-sm-10 help-block" ng-messages="pageForm.PageName.$error" ng-show="pageForm.PageName.$invalid">

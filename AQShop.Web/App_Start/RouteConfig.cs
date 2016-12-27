@@ -18,6 +18,13 @@ namespace AQShop.Web
             defaults: new { controller = "Product", action = "Search", id = UrlParameter.Optional },
             namespaces: new string[] { "AQShop.Web.Controllers" }
         );
+
+            routes.MapRoute(
+            name: "ConcactDetail",
+            url: "lien-he.html",
+            defaults: new { controller = "ContactDetail", action = "Index", id = UrlParameter.Optional },
+            namespaces: new string[] { "AQShop.Web.Controllers" }
+        );
             routes.MapRoute(
              name: "Login",
              url: "dang-nhap.html",

@@ -60,6 +60,7 @@
     <Compile Include="Abstracts\Audiable.cs" />
     <Compile Include="Abstracts\IAudiable.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\ContactDetail.cs" />
     <Compile Include="Models\Error.cs" />
     <Compile Include="Models\Footer.cs" />
     <Compile Include="Models\Menu.cs" />

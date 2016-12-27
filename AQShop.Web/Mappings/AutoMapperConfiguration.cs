@@ -27,6 +27,9 @@ namespace AQShop.Web.Mappings
             Mapper.CreateMap<Slide, SlideViewModel>();
             Mapper.CreateMap<Page, PageViewModel>();
             Mapper.CreateMap<PageViewModel, Page>();
+
+            Mapper.CreateMap<ContactDetail, ContactDetailViewModel>();
+            Mapper.CreateMap<ContactDetailViewModel, ContactDetail>();
         }
     }
 }

@@ -1,0 +1,89 @@
+﻿<div class="box-header with-border">
+    <h3 class="box-title">Thêm mới liên hệ</h3>
+</div>
+<!-- /.box-header -->
+<!-- form start -->
+<form class="form-horizontal" name="contactDetailForm">
+    <div class="box-body">
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">Tên liên hệ</label>
+            <div class="col-sm-10" ng-class="{'has-error': contactDetailForm.ContactDetailName.$invalid }">
+                <input name="ContactDetailName" required type="text" class="form-control" ng-model="contactDetail.Name">
+                <div class=" col-sm-10 help-block" ng-messages="contactDetailForm.contactDetailName.$error" ng-show="contactDetailForm.ContactDetailName.$invalid">
+                    <p ng-message="required">Tên liên hệ là bắt buộc nhập.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">Điện thoại</label>
+            <div class="col-sm-10" ng-class="{'has-error': contactDetailForm.ContactDetailPhone.$invalid }">
+                <input name="ContactDetailPhone" required type="text" class="form-control" ng-model="contactDetail.Phone">
+                <div class=" col-sm-10 help-block" ng-messages="contactDetailForm.ContactDetailPhone.$error" ng-show="contactDetailForm.ContactDetailPhone.$invalid">
+                    <p ng-message="required">Số điện thoại là bắt buộc nhập.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-10" ng-class="{'has-error': contactDetailForm.ContactDetailEmail.$invalid }">
+                <input name="ContactDetailEmail" required type="text" class="form-control" ng-model="contactDetail.Email">
+                <div class=" col-sm-10 help-block" ng-messages="contactDetailForm.ContactDetailEmail.$error" ng-show="contactDetailForm.ContactDetailEmail.$invalid">
+                    <p ng-message="required">Email là bắt buộc nhập.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">Website</label>
+            <div class="col-sm-10" ng-class="{'has-error': contactDetailForm.ContactDetailWebsite.$invalid }">
+                <input name="ContactDetailWebsite" type="text" class="form-control" ng-model="contactDetail.Website">
+                <div class=" col-sm-10 help-block" ng-messages="contactDetailForm.ContactDetailWebsite.$error" ng-show="contactDetailForm.ContactDetailWebsite.$invalid">
+
+                </div>
+            </div>
+        </div>       
+
+
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">Thông tin khác</label>
+            <div class="col-sm-10" ng-class="{'has-error': contactDetailForm.ContactDetailOther.$invalid }">
+                <input name="ContactDetailWebsite" type="text" class="form-control" ng-model="contactDetail.Other">
+                <div class=" col-sm-10 help-block" ng-messages="contactDetailForm.ContactDetailOther.$error" ng-show="contactDetailForm.ContactDetailOther.$invalid">
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">Tọa độ Lat</label>
+            <div class="col-sm-10" ng-class="{'has-error': contactDetailForm.ContactDetailLat.$invalid }">
+                <input name="ContactDetailLat" type="text" class="form-control" ng-model="contactDetail.Lat">
+                <div class=" col-sm-10 help-block" ng-messages="contactDetailForm.ContactDetailLat.$error" ng-show="contactDetailForm.ContactDetailLat.$invalid">
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">Tọa độ Lon</label>
+            <div class="col-sm-10" ng-class="{'has-error': contactDetailForm.ContactDetailLng.$invalid }">
+                <input name="ContactDetailLng" type="text" class="form-control" ng-model="contactDetail.Lng">
+                <div class=" col-sm-10 help-block" ng-messages="contactDetailForm.ContactDetailLng.$error" ng-show="contactDetailForm.ContactDetailLng.$invalid">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /.box-body -->
+    <div class="box-footer">
+        <button ui-sref="contactDetails" class="btn btn-default">Hủy bỏ</button>
+        <button type="submit" ng-disabled="contactDetailForm.$invalid" ng-click="AddContactDetail()" class="btn btn-info pull-right">Tiến hành</button>
+    </div>
+    <!-- /.box-footer -->
+</form>

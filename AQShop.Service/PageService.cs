@@ -12,6 +12,7 @@ namespace AQShop.Service
     public interface IPageService
     {
         Page GetPageByAlias(string alias);
+        Page GetPageById(int id);
 
         Page Add(Page page);
         void Save();
@@ -61,6 +62,11 @@ namespace AQShop.Service
         public IEnumerable<Page> GetAll()
         {
             return _pageRepository.GetAll();
+        }
+
+        public Page GetPageById(int id)
+        {
+            return _pageRepository.GetSingleById(id);
         }
     }
 }

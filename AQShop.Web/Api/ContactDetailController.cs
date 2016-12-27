@@ -1,31 +1,30 @@
-﻿using AQShop.Model.Models;
-using AQShop.Service;
-using AQShop.Web.Infrastructure.Core;
-using AQShop.Web.Models;
-using AutoMapper;
+﻿using AQShop.Web.Infrastructure.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using AQShop.Service;
+using AQShop.Web.Models;
+using AutoMapper;
+using AQShop.Model.Models;
 
 namespace AQShop.Web.Api
 {
-    [RoutePrefix("api/page")]
+    [RoutePrefix("api/contactDetail")]
     [Authorize]
-    public class PageController : ApiControllerBase
+    public class ContactDetailController : ApiControllerBase
     {
-        private IPageService _pageService;
-
-        public PageController(IErrorService errorService, IPageService pageService) : base(errorService)
+        private IContactDetailService _contactDetailService;
+        public ContactDetailController(IErrorService errorService, IContactDetailService contactDetaiService) : base(errorService)
         {
-            this._pageService = pageService;
+            _contactDetailService = contactDetaiService;
         }
 
         [Route("update")]
         [HttpPut]
-        public HttpResponseMessage Edit(HttpRequestMessage request, PageViewModel pageViewModel)
+        public HttpResponseMessage Edit(HttpRequestMessage request, ContactDetailViewModel contactDetailViewModel)
         {
             return CreateHttpResponse(request, ()
                 =>
@@ -37,10 +36,10 @@ namespace AQShop.Web.Api
                 }
                 else
                 {
-                    var page = Mapper.Map<PageViewModel, Page>(pageViewModel);
-                    _pageService.Update(page);
-                    _pageService.Save();
-                    response = request.CreateResponse(HttpStatusCode.Created, pageViewModel);
+                    var contactDetail = Mapper.Map<ContactDetailViewModel, ContactDetail>(contactDetailViewModel);
+                    _contactDetailService.UpdateContactDetail(contactDetail);
+                    _contactDetailService.Save();
+                    response = request.CreateResponse(HttpStatusCode.Created, contactDetailViewModel);
                 }
                 return response;
             });
@@ -48,7 +47,7 @@ namespace AQShop.Web.Api
 
         [Route("create")]
         [HttpPost]
-        public HttpResponseMessage Create(HttpRequestMessage request, PageViewModel pageViewModel)
+        public HttpResponseMessage Create(HttpRequestMessage request, ContactDetailViewModel contactDetailViewModel)
         {
             return CreateHttpResponse(request, ()
                 =>
@@ -60,15 +59,14 @@ namespace AQShop.Web.Api
                 }
                 else
                 {
-                    var page = Mapper.Map<PageViewModel, Page>(pageViewModel);
-                    _pageService.Add(page);
-                    _pageService.Save();
-                    response = request.CreateResponse(HttpStatusCode.Created, pageViewModel);
+                    var contactDettail = Mapper.Map<ContactDetailViewModel, ContactDetail>(contactDetailViewModel);
+                    _contactDetailService.AddContactDetail(contactDettail);
+                    _contactDetailService.Save();
+                    response = request.CreateResponse(HttpStatusCode.Created, contactDetailViewModel);
                 }
                 return response;
             });
         }
-
 
         [Route("DeleteMulti")]
         [HttpDelete]
@@ -84,17 +82,16 @@ namespace AQShop.Web.Api
                     foreach (var id in ids.Split(','))
                     {
 
-                        var oldPage = _pageService.Delete(int.Parse(id));
+                        var oldPage = _contactDetailService.DeleteById(int.Parse(id));
                     }
-                    _pageService.Save();
-               
+                    _contactDetailService.Save();
+
                     response = request.CreateResponse(HttpStatusCode.OK);
                 }
 
                 return response;
             });
         }
-
 
         [Route("DeleteById")]
         [HttpDelete]
@@ -106,17 +103,18 @@ namespace AQShop.Web.Api
             {
                 HttpResponseMessage response = null;
 
-                var oldPage = _pageService.Delete(id);
-                _pageService.Save();
+                var oldContactDetail = _contactDetailService.DeleteById(id);
+                _contactDetailService.Save();
 
-                var pageViewModel = Mapper.Map<Page,PageViewModel>(oldPage);
+                var pageViewModel = Mapper.Map<ContactDetail, ContactDetailViewModel>(oldContactDetail);
 
-                response = request.CreateResponse(HttpStatusCode.OK, pageViewModel);
+                response = request.CreateResponse(HttpStatusCode.OK, oldContactDetail);
 
                 return response;
             });
         }
-        
+
+
         [Route("GetById/{id:int}")]
         public HttpResponseMessage GetById(HttpRequestMessage request, int id)
         {
@@ -125,15 +123,16 @@ namespace AQShop.Web.Api
             {
                 HttpResponseMessage response = null;
 
-                var page = _pageService.GetPageById(id);
+                var contactDetail = _contactDetailService.GetById(id);
 
-                var PageViewModel = Mapper.Map<Page, PageViewModel>(page);
+                var contactDetailViewModel = Mapper.Map<ContactDetail, ContactDetailViewModel>(contactDetail);
 
-                response = request.CreateResponse(HttpStatusCode.OK, PageViewModel);
+                response = request.CreateResponse(HttpStatusCode.OK, contactDetailViewModel);
 
                 return response;
             });
         }
+
 
         [Route("GetAll")]
         public HttpResponseMessage GetAll(HttpRequestMessage request, int page, int pageSize)
@@ -141,17 +140,17 @@ namespace AQShop.Web.Api
             return CreateHttpResponse(request, ()
                 =>
             {
-                HttpResponseMessage response = null;               
+                HttpResponseMessage response = null;
                 int totalRow = 0;
-                var pageList = _pageService.GetAll();
+                var contactDetailList = _contactDetailService.GetAll();
 
-                totalRow = pageList.Count();
+                totalRow = contactDetailList.Count();
 
-                var query = pageList.OrderBy(x => x.Name).Skip(page * pageSize).Take(pageSize);
+                var query = contactDetailList.OrderBy(x => x.Name).Skip(page * pageSize).Take(pageSize);
 
-                var ListViewModel = Mapper.Map<IEnumerable<Page>, IEnumerable<PageViewModel>>(query);
+                var ListViewModel = Mapper.Map<IEnumerable<ContactDetail>, IEnumerable<ContactDetailViewModel>>(query);
 
-                var pagination = new PaginationSet<PageViewModel>()
+                var pagination = new PaginationSet<ContactDetailViewModel>()
                 {
                     Page = page,
                     TotalCount = totalRow,

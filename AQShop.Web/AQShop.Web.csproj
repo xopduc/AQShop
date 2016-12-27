@@ -236,6 +236,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\AccountController.cs" />
+    <Compile Include="Api\ContactDetailController.cs" />
     <Compile Include="Api\HomeController.cs" />
     <Compile Include="Api\PageController.cs" />
     <Compile Include="Api\PostCategoryController.cs" />
@@ -251,6 +252,7 @@
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ContactDetailController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Controllers\PostController.cs" />
@@ -262,6 +264,8 @@
     <Compile Include="Infrastructure\Core\PaginationSet.cs" />
     <Compile Include="Infrastructure\Extensions\EntityExtensions.cs" />
     <Compile Include="Mappings\AutoMapperConfiguration.cs" />
+    <Compile Include="Models\ContactDetailViewModel.cs" />
+    <Compile Include="Models\FeedbackViewModel.cs" />
     <Compile Include="Models\FooterViewModel.cs" />
     <Compile Include="Models\HomeViewModel.cs" />
     <Compile Include="Models\PageViewModel.cs" />
@@ -279,6 +283,13 @@
     <Content Include="3ThirdParty\CKFinder.dll" />
     <Content Include="app\app.js" />
     <Content Include="app\app.route.js" />
+    <Content Include="app\components\contactdetails\contactDetailAddController.js" />
+    <Content Include="app\components\contactdetails\contactDetailAddView.html" />
+    <Content Include="app\components\contactdetails\contactDetailEditController.js" />
+    <Content Include="app\components\contactdetails\contactDetailEditView.html" />
+    <Content Include="app\components\contactdetails\contactDetailListController.js" />
+    <Content Include="app\components\contactdetails\contactDetailListView.html" />
+    <Content Include="app\components\contactdetails\contactDetail.module.js" />
     <Content Include="app\components\home\homeController.js" />
     <Content Include="app\components\home\homeView.html" />
     <Content Include="app\components\home\rootController.js" />
@@ -3232,6 +3243,7 @@
     <Content Include="Assets\client\jqueri-ui\ui\widgets\tabs.js" />
     <Content Include="Assets\client\jqueri-ui\ui\widgets\tooltip.js" />
     <Content Include="Assets\client\js\common.js" />
+    <Content Include="Assets\client\js\controllers\contactDetail.js" />
     <Content Include="Assets\client\js\jquery.etalage.min.js" />
     <Content Include="Assets\client\js\jquery.flexisel.js" />
     <Content Include="Assets\client\js\jquery.min.js" />
@@ -3699,6 +3711,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Page\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ContactDetail\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

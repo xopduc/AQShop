@@ -21,7 +21,7 @@
 
         function loadPageById() {
             apiService.get("/api/page/GetById/" + $stateParams.id, null, function (result) {
-                $scope.product = result.data;
+                $scope.page = result.data;
             }, function () {
                 notificationService.displayError("Không thể load page");
             });
@@ -34,12 +34,9 @@
             }, function (error) {
                 notificationService.displayError("Thêm mới không thành công");
             });
-        }
-
-
-
-        loadParentCategory();
-        loadProductById();
+        }       
+              
+        loadPageById();
     }
 
 })(angular.module("aqshop.pages"));

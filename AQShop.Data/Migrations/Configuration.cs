@@ -21,7 +21,7 @@
             //UpdateProductCategory(context);
             //CreateFooter(context);
             //CreateSlide(context);
-            CreatePage(context);
+           // CreatePage(context);
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
