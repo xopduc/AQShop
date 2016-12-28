@@ -10,12 +10,12 @@
 
 @section footerJS{
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAk3Eeu6MXm1Y6qil2hO6j89kckY5nnSTo"></script>
-  
-        <script src="~/Assets/client/js/controllers/contactDetail.js"></script>
+
+    <script src="~/Assets/client/js/controllers/contactDetail.js"></script>
 }
 <style>
     #map {
-        height: 100%;
+        height: 400px;
     }
 </style>
 
@@ -41,6 +41,16 @@
         </div>
     </div>
 
-    
+    <div class="contact-form">
+        <form method="post" action="contact-post.html">
+            <input type="text" name="@Model.Name" ID="@Model.Name" class="textbox" value="Tên" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Tên';}">
+            <input type="text" name="@Model.Email" id="@Model.Email" class="textbox" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
+            <textarea name="@Model.Message" id="@Model.Message" value="Nội dung" onfocus="this.value= '';" onblur="if (this.value == '') {this.value = 'Nội dung';}">Nội dung</textarea>
+            <input type="submit" value="Gởi">
+            <div class="clearfix"> </div>
+        </form>
+       
+    </div>
 </div>
+
 
