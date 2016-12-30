@@ -34,8 +34,7 @@ namespace AQShop.Service
 
         public Page Add(Page page)
         {
-            var pageAdd = _pageRepository.Add(page);
-            _unitOfWork.Commit();           
+            var pageAdd = _pageRepository.Add(page);                   
             return pageAdd;
         }
 

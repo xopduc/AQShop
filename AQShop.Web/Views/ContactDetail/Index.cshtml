@@ -1,5 +1,5 @@
 ﻿@model AQShop.Web.Models.FeedbackViewModel
-
+@using BotDetect.Web.Mvc;
 
 @{
     ViewBag.Title = "liên hê";
@@ -13,6 +13,7 @@
 
     <script src="~/Assets/client/js/controllers/contactDetail.js"></script>
 }
+<link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl" rel="stylesheet" type="text/css" />
 <style>
     #map {
         height: 400px;
@@ -40,15 +41,34 @@
             <div id="map"></div>
         </div>
     </div>
-
+    <div class="clearfix"> </div>  
+        
     <div class="contact-form">
-        <form method="post" action="contact-post.html">
-            <input type="text" name="@Model.Name" ID="@Model.Name" class="textbox" value="Tên" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Tên';}">
-            <input type="text" name="@Model.Email" id="@Model.Email" class="textbox" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
-            <textarea name="@Model.Message" id="@Model.Message" value="Nội dung" onfocus="this.value= '';" onblur="if (this.value == '') {this.value = 'Nội dung';}">Nội dung</textarea>
+        @using (Html.BeginForm("SendFeedback", "ContactDetail", FormMethod.Post))
+        {
+            if (ViewData["SuccessMsg"] != null)
+            {
+            <div class="alert alert-success" role="alert">
+                <strong>Chúc mừng bạn! </strong> gửi phản hồi thành công.
+                <br />Chúng tôi sẽ liên hệ lại sớm nhất có thể.
+            </div>
+            }
+          
+            @Html.TextBoxFor(model => model.Name, new { @class = "textbox" });
+            @Html.ValidationMessage("Name", String.Empty, new { @class = "text-danger" })
+            @Html.TextBoxFor(model => model.Email, new { @class = "textbox" });
+            @Html.ValidationMessage("Email", String.Empty, new { @class = "text-danger" })
+            @Html.TextAreaFor(model => model.Message);
+
+            MvcCaptcha contactCaptcha = new MvcCaptcha("contactCaptcha");
+            @Html.Captcha(contactCaptcha)
+            @Html.TextBox("CaptchaCode")
+            @Html.ValidationMessage("CaptchaCode", String.Empty, new { @class = "text-danger" })
+
             <input type="submit" value="Gởi">
+       
             <div class="clearfix"> </div>
-        </form>
+        }      
        
     </div>
 </div>

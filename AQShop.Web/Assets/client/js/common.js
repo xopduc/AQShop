@@ -23,7 +23,7 @@
                 return false;
             },
             select: function (event, ui) {
-                $("#txtKeyword").val(ui.item.label);               
+                $("#txtKeyword").val(ui.item.label);
 
                 return false;
             }
@@ -33,6 +33,10 @@
           .append("<a>" + item.label + "</a>")
           .appendTo(ul);
     };
+        $('#btnLogout').off('click').on('click', function (e) {
+            e.preventDefault();
+            $('#frmLogout').submit();
+        });
     }
 };
 common.init();

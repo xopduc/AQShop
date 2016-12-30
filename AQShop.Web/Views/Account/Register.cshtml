@@ -1,0 +1,76 @@
+﻿@model AQShop.Web.Models.RegisterViewModel
+@using BotDetect.Web.Mvc;
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/Layouts.cshtml";
+}
+<link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl" rel="stylesheet" type="text/css" />
+<div class="register">
+   @using (Html.BeginForm("Register", "Account",FormMethod.Post))
+   {
+    @Html.AntiForgeryToken();
+    if (ViewData["SuccessMsg"] != null)
+    {
+    <div class="alert alert-success" role="alert">
+        <strong>Chúc mừng bạn! </strong> đã đăng ký thành công.
+        <br />Vui lòng click <a href="/dang-nhap.html">vào đây </a>để đăng nhập.
+    </div>
+    }
+        <div class=" register-top-grid">
+            <h3>Thông tin đăng ký</h3>
+            <div class="mation">
+                <span>Họ và tên<label>*</label></span>
+               @Html.TextBoxFor(m=>m.FullName)
+                @Html.ValidationMessageFor(x=>x.FullName, string.Empty, new {@class="error"})                
+
+                <span>Địa chỉ mail<label>*</label></span>
+                @Html.TextBoxFor(m => m.Email)
+                @Html.ValidationMessageFor(x => x.FullName, string.Empty, new { @class = "error" })
+
+                
+
+                <span>Địa chỉ<label>*</label></span>
+                @Html.TextBoxFor(m => m.Address)
+                @Html.ValidationMessageFor(x => x.Address, string.Empty, new { @class = "error" })
+
+                
+
+                <span>Số điện thoại<label>*</label></span>
+                @Html.TextBoxFor(m => m.PhoneNumber)
+                @Html.ValidationMessageFor(x => x.PhoneNumber, string.Empty, new { @class = "error" })
+
+                
+
+                <span>Tên đăng nhập<label>*</label></span>
+                @Html.TextBoxFor(m => m.UserName)
+                @Html.ValidationMessageFor(x => x.UserName, string.Empty, new { @class = "error" })
+
+                
+
+                <span>Mật khẩu<label>*</label></span>
+                @Html.TextBoxFor(m => m.Password)
+                @Html.ValidationMessageFor(x => x.Password, string.Empty, new { @class = "error" })
+
+                
+
+                @{
+                    MvcCaptcha registerCaptcha = new MvcCaptcha("registerCaptcha");
+                }
+                @Html.Captcha(registerCaptcha)
+                @Html.TextBox("CaptchaCode")
+                @Html.ValidationMessage("CaptchaCode", string.Empty, new { @class = "error" })
+
+                
+              
+            </div>
+            <div class="clearfix"> </div>           
+        </div>        
+   
+    <div class="clearfix"> </div>
+    <div class="register-but">        
+            <input type="submit" value="submit">
+            <div class="clearfix"> </div>        
+    </div>
+    }
+</div>
+

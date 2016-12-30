@@ -12,3 +12,7 @@ margin-right:5px;
 .taglist li a:hover{
 	background: #1DBAA5;
 }
+.error
+{
+  color:red;
+}
