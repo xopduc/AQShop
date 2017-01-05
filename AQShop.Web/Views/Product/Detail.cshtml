@@ -5,6 +5,7 @@
 }
 <link href="~/Assets/client/css/etalage.css" rel="stylesheet" />
 @section footerJS{
+
 <script type="text/javascript">
     $(window).load(function () {
         $('#etalage').etalage({
@@ -78,8 +79,8 @@
 
             <h4>@Model.Description</h4>
             <div class="cart-b">
-                <div class="left-n ">@Model.Price.ToString("N0")</div>
-                <a class="now-get get-cart-in" href="#">ADD TO CART</a>
+                <div class="left-n ">@(Model.Price == 0 ? "Liên hệ" : Model.Price.ToString("N0"))</div>
+                <a class="now-get get-cart-in" data-id="@Model.ID"  id="btnAddToCart" href="#">Thêm vào giỏ hàng</a>
                 <div class="clearfix"></div>
             </div>
             <h6>@Model.Quantity sản phẩm trong kho hàng</h6>

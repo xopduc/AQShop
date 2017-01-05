@@ -28,7 +28,7 @@ namespace AQShop.Service
 
         public Footer GetFooterCommon()
         {
-            return _footerRepository.GetSingleByCondition(c => c.ID == CommonConstant.DefaultIdFooter);
+            return _footerRepository.GetSingleByCondition(c => c.ID == CommonConstants.DefaultIdFooter);
         }
 
         public IEnumerable<Slide> GetSlides()

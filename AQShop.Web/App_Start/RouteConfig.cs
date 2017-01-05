@@ -14,6 +14,12 @@ namespace AQShop.Web
               new { botdetect = @"(.*)BotDetectCaptcha\.ashx" });
 
             routes.MapRoute(
+            name: "shoppingCart",
+            url: "gio-hang.html",
+            defaults: new { controller = "ShoppingCart", action = "Index", id = UrlParameter.Optional },
+            namespaces: new string[] { "AQShop.Web.Controllers" }
+        );
+            routes.MapRoute(
             name: "Search",
             url: "tim-kiem.html",
             defaults: new { controller = "Product", action = "Search", id = UrlParameter.Optional },

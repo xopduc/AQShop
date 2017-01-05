@@ -79,7 +79,7 @@ namespace AQShop.Service
                         var tag = new Tag();
                         tag.ID = tagId;
                         tag.Name = tagItem;
-                        tag.Type = CommonConstant.ProductTag;
+                        tag.Type = CommonConstants.ProductTag;
 
                         _tagRepository.Add(tag);
                         _unitOfWork.Commit();
@@ -144,7 +144,7 @@ namespace AQShop.Service
                         var tag = new Tag();
                         tag.ID = tagId;
                         tag.Name = tagItem;
-                        tag.Type = CommonConstant.ProductTag;
+                        tag.Type = CommonConstants.ProductTag;
                         _tagRepository.Add(tag);
                         _unitOfWork.Commit();
                     }

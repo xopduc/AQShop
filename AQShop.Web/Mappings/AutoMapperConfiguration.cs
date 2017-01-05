@@ -32,6 +32,12 @@ namespace AQShop.Web.Mappings
             Mapper.CreateMap<ContactDetailViewModel, ContactDetail>();
 
             Mapper.CreateMap<FeedbackViewModel, Feedback>();
+            Mapper.CreateMap<OrderViewModel,Order>();
+            Mapper.CreateMap<Order, OrderViewModel>();
+
+            Mapper.CreateMap<OrderDetailViewModel, Order>();
+            Mapper.CreateMap<Order, OrderDetailViewModel>();
+
         }
     }
 }

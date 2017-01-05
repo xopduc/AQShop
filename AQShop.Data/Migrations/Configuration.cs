@@ -84,9 +84,9 @@
         {
             //add footer for home
             var footers = new List<Footer>();
-            if((context.Footers.Where(x=>x.ID == Common.CommonConstant.DefaultIdFooter).Count()) == 0)
+            if((context.Footers.Where(x=>x.ID == Common.CommonConstants.DefaultIdFooter).Count()) == 0)
             {
-                var footer = new Footer() { ID = Common.CommonConstant.DefaultIdFooter, Content = " " };
+                var footer = new Footer() { ID = Common.CommonConstants.DefaultIdFooter, Content = " " };
                 footers.Add(footer);
                 context.Footers.AddRange(footers);
             }

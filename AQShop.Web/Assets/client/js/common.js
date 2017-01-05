@@ -37,6 +37,24 @@
             e.preventDefault();
             $('#frmLogout').submit();
         });
+        $('#btnAddToCart').off('click').on('click', function (e) {
+            e.preventDefault();
+            var productId = $(this).data('id');
+            common.addItem(productId);
+        });
+    },
+    addItem: function (productId) {
+        $.ajax({
+            url: 'ShoppingCart/Add',
+            data: { productId: productId },
+            type: 'post',
+            dataType: 'json',
+            success: function (res) {
+                if (res.status) {
+                    alert('Thêm sản phẩm thành công');
+                }
+            }
+        })
     }
 };
 common.init();

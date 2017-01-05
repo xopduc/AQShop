@@ -45,6 +45,11 @@ namespace AQShop.Web.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
+            if (String.IsNullOrEmpty(returnUrl))
+            {
+                ViewBag.ReturnUrl = System.Web.HttpContext.Current.Request.UrlReferrer;
+            }
+           
             return View();
         }
 
@@ -62,7 +67,10 @@ namespace AQShop.Web.Controllers
                     AuthenticationProperties props = new AuthenticationProperties();
                     props.IsPersistent = model.RememberMe;
                     authenticationManager.SignIn(props, identity);
-                    if (Url.IsLocalUrl(returnUrl))
+                    if (string.IsNullOrEmpty(returnUrl) && Request.UrlReferrer != null)
+                        returnUrl = Server.UrlEncode(Request.UrlReferrer.PathAndQuery);
+                    ///if (Url.IsLocalUrl(returnUrl))
+                    if (!String.IsNullOrEmpty(returnUrl))
                     {
                         return Redirect(returnUrl);
                     }
