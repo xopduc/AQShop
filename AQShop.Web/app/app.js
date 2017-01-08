@@ -1,7 +1,7 @@
 ﻿/// <reference path="/Assets/admin/libs/angular/angular.js" />
 
 (function (){
-    angular.module("aqshop", ['aqshop.common', 'aqshop.product_categories', 'aqshop.products','aqshop.pages','aqshop.contactDetails', 'ngMaterial', 'md.data.table']).config(config).config(configAuthentication);
+    angular.module("aqshop", ['aqshop.common', 'aqshop.product_categories', 'aqshop.products','aqshop.pages','aqshop.contactDetails','aqshop.application_groups','aqshop.application_roles','aqshop.application_users', 'ngMaterial', 'md.data.table']).config(config).config(configAuthentication);
     config.$inject=["$stateProvider", "$urlRouterProvider"];
     function config($stateProvider, $urlRouterProvider)
     {

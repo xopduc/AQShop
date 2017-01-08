@@ -154,7 +154,7 @@ namespace AQShop.Web.Controllers
             if (Request.IsAuthenticated)
             {
                 orderNew.CustomerId = User.Identity.GetUserId();
-                orderNew.CreateBy = User.Identity.GetUserName();
+                orderNew.CreateBy = User.Identity.GetUserName();           
             }
 
             var cart = (List<ShoppingCartViewModel>)Session[CommonConstants.SessionCart];
@@ -164,6 +164,7 @@ namespace AQShop.Web.Controllers
                 var detail = new OrderDetail();
                 detail.ProductID = item.ProductId;
                 detail.Quantity = item.Quantity;
+                detail.Price = item.Product.Price;
                 orderDetails.Add(detail);
             }
 

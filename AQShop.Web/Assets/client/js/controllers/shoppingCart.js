@@ -7,10 +7,31 @@
     registerEvent: function () {
         //binding events
         //add to cart
-        $('#btnAddToCart').off('click').on('click', function (e) {
-            e.preventDefault();
-            var productId = $(this).data('id');
-            cart.addItem(productId);
+        $('#frmPayment').validate({
+            rules: {
+                name: "required",
+                address: "required",
+                email: {
+                    required: true,
+                    email: true
+                },
+                phone: {
+                    required: true,
+                    number: true
+                }
+            },
+            messages: {
+                name: "Yêu cầu nhập tên",
+                address: "Yêu cầu nhập địa chỉ",
+                email: {
+                    required: "Bạn cần nhập email",
+                    email: "Định dạng email chưa đúng"
+                },
+                phone: {
+                    required: "Số điện thoại được yêu cầu",
+                    number: "Số điện thoại phải là số."
+                }
+            }
         });
 
         //delete item in cart
@@ -98,7 +119,7 @@
                 if (response.status) {
                     console.log('create order ok');
                     $('#divCheckout').hide();
-                    cart.deleteAll();
+                    cart.deleteAllItem();
                     setTimeout(function () {
                         $('#cartContent').html('Cảm ơn bạn đã đặt hàng thành công. Chúng tôi sẽ liên hệ sớm nhất.');
                     }, 2000);

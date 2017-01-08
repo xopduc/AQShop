@@ -18,6 +18,7 @@
     <link href="~/Assets/admin/libs/angular-loading-bar/src/loading-bar.css" rel="stylesheet" />
     <link href="~/Assets/admin/libs/angular-material/angular-material.min.css" rel="stylesheet" />
 
+
     <link href="~/Assets/admin/libs/angular-material-data-table/dist/md-data-table.min.css" rel="stylesheet" />
     <!-- Theme style -->  
     <link href="~/Assets/admin/css/AdminLTE.min.css" rel="stylesheet" />
@@ -45,6 +46,9 @@
     <script src="~/Assets/admin/libs/slimScroll/jquery.slimscroll.min.js"></script>
     <!-- FastClick -->   
     <script src="~/Assets/admin/libs/fastclick/lib/fastclick.js"></script>
+    <!---Bootbox-->
+    <script src="~/Assets/admin/libs/bootbox/bootbox.js"></script> 
+   
     <!-- AdminLTE App -->  
     <script src="~/Assets/admin/js/app.min.js"></script>
     <!-- AdminLTE for demo purposes -->
@@ -58,15 +62,20 @@
     <script src="~/Assets/admin/libs/angular-material/angular-material.min.js"></script>
     <script src="~/Assets/admin/libs/toastr/toastr.min.js"></script>
     <script src="~/Assets/admin/libs/angular-material-data-table/dist/md-data-table.min.js"></script>
+    <!--Checklist-->
+    <script src="~/Assets/admin/libs/checklist-model/checklist-model.js"></script>
+   
     <script src="~/app/shared/modules/aqshop.common.js"></script>
     <script src="~/app/services/apiService.js"></script>
 
     <script src="~/Assets/admin/libs/ng-ckeditor/libs/ckeditor/ckeditor.js"></script>
     <script src="~/Assets/admin/libs/ng-ckeditor/ng-ckeditor.min.js"></script>
     <script src="~/Assets/admin/libs/ckfinder/ckfinder.js"></script>
+    <script src="~/Assets/admin/libs/ngBootbox/ngBootbox.js"></script>
     <script src="~/Assets/admin/libs/angular-local-storage/dist/angular-local-storage.min.js"></script>
     <script src="~/Assets/admin/libs/angular-loading-bar/src/loading-bar.js"></script>
     <script src="~/app/shared/directives/pagerDirective.js"></script>
+    <script src="~/app/shared/directives/asDateDirective.js"></script>
     <script src="~/app/services/notificationSerice.js"></script>
     <script src="~/app/services/authData.js"></script>
     <script src="~/app/services/authenticationService.js"></script>
@@ -76,6 +85,10 @@
     <script src="~/app/components/products/products.module.js"></script>
     <script src="~/app/components/pages/pages.module.js"></script>
     <script src="~/app/components/contactdetails/contactDetail.module.js"></script>
+    <script src="~/app/components/application_groups/applicationGroup.module.js"></script>
+    <script src="~/app/components/application_roles/applicationRole.module.js"></script>
+    <script src="~/app/components/application_users/applicationUser.module.js"></script>
+
     <script src="~/app/app.js"></script>
     <script src="~/app/shared/filters/statusFilter.js"></script>
 
@@ -97,7 +110,19 @@
     <script src="~/app/components/contactdetails/contactDetailAddController.js"></script>
     <script src="~/app/components/contactdetails/contactDetailListController.js"></script>
     <script src="~/app/components/contactdetails/contactDetailEditController.js"></script>
-   
+
+    <script src="~/app/components/application_groups/applicationGroupListController.js"></script>
+    <script src="~/app/components/application_groups/applicationGroupAddController.js"></script>
+    <script src="~/app/components/application_groups/applicationGroupEditController.js"></script>
+
+    <script src="~/app/components/application_roles/applicationRoleListController.js"></script>
+    <script src="~/app/components/application_roles/applicationRoleAddController.js"></script>
+    <script src="~/app/components/application_roles/applicationRoleEditController.js"></script>
+
+    <script src="~/app/components/application_users/applicationUserListController.js"></script>
+    <script src="~/app/components/application_users/applicationUserAddController.js"></script>
+    <script src="~/app/components/application_users/applicationUserEditController.js"></script>
+
     <script src="~/app/components/home/homeController.js"></script>
 </body>
 </html>

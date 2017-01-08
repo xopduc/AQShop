@@ -38,6 +38,15 @@ namespace AQShop.Web.Mappings
             Mapper.CreateMap<OrderDetailViewModel, Order>();
             Mapper.CreateMap<Order, OrderDetailViewModel>();
 
+            Mapper.CreateMap<ApplicationGroup, ApplicationGroupViewModel>();
+            Mapper.CreateMap<ApplicationUser, ApplicationUserViewModel>();
+            Mapper.CreateMap<ApplicationRole, ApplicationRoleViewModel>();
+
+            Mapper.CreateMap<ApplicationGroupViewModel, ApplicationGroup>();
+            Mapper.CreateMap<ApplicationUserViewModel, ApplicationUser>();
+            Mapper.CreateMap<ApplicationRoleViewModel, ApplicationRole>();
+
+
         }
     }
 }
